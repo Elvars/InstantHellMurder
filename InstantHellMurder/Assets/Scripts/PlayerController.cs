@@ -10,7 +10,8 @@ public class PlayerController : NetworkBehaviour {
 	private float syncDelay = 0f;
 	float lastSynchronizationTime = 0f;
 
-	
+
+	//ayy
 	public enum WeaponRotation
 	{
 		Up = -90,
@@ -56,7 +57,6 @@ public class PlayerController : NetworkBehaviour {
 
 		bullets = new List<GameObject>();
 
-//
 		for (int i=0; i<20; i++) 
 		{
 		
@@ -69,7 +69,6 @@ public class PlayerController : NetworkBehaviour {
 	}
 	
 
-	// Update is called once per frame
 	void Update () 
 	{
 		if(isLocalPlayer)
@@ -85,12 +84,14 @@ public class PlayerController : NetworkBehaviour {
 		}
 	}
 
+
 	void Jump()
 	{
 		jumpCount++;
 		rb.AddForce(Vector2.up*500);
 
 	}
+
 
 	[Command]
 	void CmdShoot(Vector3 pos, Quaternion rot)
@@ -122,6 +123,7 @@ public class PlayerController : NetworkBehaviour {
 		trans.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 
+
 	void HandleControls()
 	{
 
@@ -149,6 +151,7 @@ public class PlayerController : NetworkBehaviour {
 			CmdShoot(transform.position, transform.rotation);
 		}
 	}
+
 
 	void OnCollisionEnter2D(Collision2D collider)
 	{
@@ -178,6 +181,7 @@ public class PlayerController : NetworkBehaviour {
 			rb.position = syncPosition;
 		}
 	}
+
 
 	private void SyncedMovement()
 	{
