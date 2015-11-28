@@ -1,4 +1,4 @@
-Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
+Initialize engine version: 5.2.2f1 (3757309da7e7)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 10.1]
@@ -14,50 +14,13 @@ Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHe
 Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.335 seconds
+- Completed reload, in  0.305 seconds
 desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\System.dll (this message is harmless)
-Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: NVIDIA NVS 3100M (ID=0xa6c)
-    Vendor:   NVIDIA
-    VRAM:     210 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.085 seconds
-desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder_Data\Managed\System.dll (this message is harmless)
-Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.StartServer listen failed.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
-aissp: time {32351} lastRecTime {30323} DisTme {2000}, rtt {0} 
- 
-(Filename:  Line: 1845)
-
-UNet Client Disconnect Error: Timeout
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1870 -> priority: 1 
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:64224}

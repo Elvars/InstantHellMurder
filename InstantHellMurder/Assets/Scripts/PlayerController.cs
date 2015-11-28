@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 
 	Rigidbody2D rb;
+	float syncTime;
+	private float syncDelay = 0f;
+	float lastSynchronizationTime = 0f;
 
+	
 	public enum WeaponRotation
 	{
 		Up = -90,
@@ -29,17 +34,19 @@ public class PlayerController : MonoBehaviour {
 
 	List<GameObject> bullets;
 
+	private Vector3 syncStartPosition = Vector3.zero;
+	private Vector3 syncEndPosition = Vector3.zero;
+
+
 	void Awake()
 	{
+
+
+		lastSynchronizationTime = Time.time;
+
 		rb = gameObject.GetComponent<Rigidbody2D>();
 
-		bullets = new List<GameObject>();
-		for (int i=0; i<20; i++) 
-		{
-			GameObject obj = (GameObject)Instantiate (bullet);
-			obj.SetActive(false);
-			bullets.Add(obj);
-		}
+
 	}
 
 
@@ -47,49 +54,35 @@ public class PlayerController : MonoBehaviour {
 	{
 		trans = gameObject.transform.GetChild(0);
 
+		bullets = new List<GameObject>();
+
+//
+		for (int i=0; i<20; i++) 
+		{
+		
+			GameObject obj = (GameObject)Instantiate(bullet);			
+			obj.SetActive(false);
+			bullets.Add(obj);
+		}
+
+
 	}
 	
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Input.GetAxis("Horizontal")<0)
+		if(isLocalPlayer)
 		{
-			rb.AddForce(Vector2.left*10);
+			HandleControls();
+
+			HandleRotation();
 		}
 		
-		if(Input.GetAxis("Horizontal")>0)
+		else
 		{
-			rb.AddForce(Vector2.right*10);
+			SyncedMovement();
 		}
-
-		if(Input.GetButtonDown("Jump"))
-		{
-
-			if(jumpCount<2)
-			{
-				Jump();
-			}
-		}
-
-		if(Input.GetMouseButtonDown(0))
-		{
-			Shoot();
-		}
-
-		mousePos = gameObject.GetComponentInChildren<Camera>().ScreenToWorldPoint(Input.mousePosition);
-
-		direction = (mousePos - (Vector2)trans.position).normalized;
-
-		angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + (int)initialRotation;
-		trans.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-//		if(transform.GetChild(0).transform.rotation.z<360)
-//		{
-//			transform.GetChild(0).transform.Rotate(90, 0, 0);
-//		}
-
-
 	}
 
 	void Jump()
@@ -99,18 +92,62 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	void Shoot()
+	[Command]
+	void CmdShoot(Vector3 pos, Quaternion rot)
 	{
+
 		for(int i=0; i<bullets.Count; i++)
 		{
 			if(!bullets[i].activeInHierarchy)
 			{
 				bullets[i].SetActive(true);
 				bullets[i].transform.position = GameObject.FindGameObjectWithTag("BulletPoint").transform.position;
+				NetworkServer.Spawn(bullets[i]);
+
 				break;
 			}
 		}
 		
+	}
+
+
+	void HandleRotation()
+	{
+		mousePos = gameObject.GetComponentInChildren<Camera>().ScreenToWorldPoint(Input.mousePosition);
+//		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+		direction = (mousePos - (Vector2)trans.position).normalized;
+		
+		angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + (int)initialRotation;
+		trans.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+	}
+
+	void HandleControls()
+	{
+
+		if(Input.GetAxis("Horizontal")<0)
+		{
+			rb.AddForce(Vector2.left*15);
+		}
+		
+		if(Input.GetAxis("Horizontal")>0)
+		{
+			rb.AddForce(Vector2.right*15);
+		}
+		
+		if(Input.GetButtonDown("Jump"))
+		{
+			
+			if(jumpCount<2)
+			{
+				Jump();
+			}
+		}
+		
+		if(Input.GetMouseButtonDown(0))
+		{
+			CmdShoot(transform.position, transform.rotation);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collider)
@@ -124,5 +161,28 @@ public class PlayerController : MonoBehaviour {
 		{
 			gameObject.SetActive(false);
 		}
+	}
+
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
+	{
+		Vector3 syncPosition = Vector3.zero;
+		if (stream.isWriting)
+		{
+			syncPosition = rb.position;
+			stream.Serialize(ref syncPosition);
+		}
+		else
+		{
+			stream.Serialize(ref syncPosition);
+			rb.position = syncPosition;
+		}
+	}
+
+	private void SyncedMovement()
+	{
+		syncTime += Time.deltaTime;
+		
+		GetComponent<Rigidbody2D>().position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
 	}
 }
