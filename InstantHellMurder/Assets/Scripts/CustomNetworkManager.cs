@@ -9,7 +9,6 @@ public class CustomNetworkManager : NetworkManager {
 
 
 
-
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
 	{
 
@@ -20,4 +19,18 @@ public class CustomNetworkManager : NetworkManager {
 		GameObject player = (GameObject)Instantiate(playerPrefab, spawnPoint, Quaternion.identity);
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
 	}
+
+
+
+
+	public override void OnServerConnect(NetworkConnection conn)
+	{
+		Debug.Log(conn.connectionId);
+
+
+
+
+	}
+
+
 }
