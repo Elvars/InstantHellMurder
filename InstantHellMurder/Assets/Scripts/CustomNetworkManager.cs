@@ -8,7 +8,6 @@ public class CustomNetworkManager : NetworkManager {
 	public List <Transform> SpawnPoints = new List<Transform>();
 
 
-
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
 	{
 
@@ -21,15 +20,9 @@ public class CustomNetworkManager : NetworkManager {
 	}
 
 
-
-
 	public override void OnServerConnect(NetworkConnection conn)
 	{
 		Debug.Log(conn.connectionId);
-
-
-
-
 	}
 
 

@@ -96,7 +96,7 @@ public class PlayerMovement : NetworkBehaviour
 		
 		if (Input.GetKey(KeyCode.F1))
 		{
-			//tc.CmdKillSelf();
+			tc.CmdKillSelf();
 		}
 
 		Vector3 cpos = transform.position;

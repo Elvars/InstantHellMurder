@@ -37,7 +37,6 @@ public class PlayGame : NetworkBehaviour {
 			else
 			{
 				NetworkManager.singleton.client.Disconnect();
-				Application.LoadLevel("title");
 			}
 		}
 
