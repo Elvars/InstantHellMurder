@@ -8,6 +8,8 @@ public class PlayerCombat : NetworkBehaviour
 
 	public GameObject Bullet;
 
+	public GameObject Weapon;
+
 	private Transform bulletPoint;
 	private Transform weaponHinge;
 
@@ -16,16 +18,17 @@ public class PlayerCombat : NetworkBehaviour
 	public int health = 100;
 
 	[SyncVar]
-	public int ammunitionTurret = 100;
-	
-	[SyncVar]
 	public bool alive = true;
 	
 	
-	void Awake()
+	void Start()
 	{
-		bulletPoint = gameObject.transform.GetChild(0).GetChild(0).GetChild(0);
 		weaponHinge = gameObject.transform.GetChild(0);
+
+		Weapon = CustomNetworkManager.instance.Weapons[0];
+		GameObject ebin = (GameObject)Instantiate(Weapon, new Vector3(weaponHinge.transform.position.x+0.6f, weaponHinge.transform.position.y, weaponHinge.transform.position.z), weaponHinge.transform.rotation);
+		ebin.transform.parent = weaponHinge.transform;
+		NetworkServer.Spawn(ebin);
 	}
 
 
@@ -43,7 +46,6 @@ public class PlayerCombat : NetworkBehaviour
 	{
 		if (NetworkServer.active)
 			return;
-
 	}
 
 
@@ -52,19 +54,23 @@ public class PlayerCombat : NetworkBehaviour
 	{
 		if (!alive)
 		{
-//			if (Time.time > deathTimer)
-//			{
-				RpcRespawn();
-			//}
+			RpcRespawn();
 			return;
 		}
 	}
 
 
 	[Server]
-	public void GotHitByMissile(int damage)
+	public void GotHitByBullet(int damage)
 	{
 		TakeDamage(damage);
+	}
+
+
+	[Server]
+	public void GotHitByHealthPowerUp(int amount)
+	{
+		TakeHealth(amount);
 	}
 
 	
@@ -85,16 +91,29 @@ public class PlayerCombat : NetworkBehaviour
 	}
 
 
+	[Server]
+	void TakeHealth(int amount)
+	{
+		if(!alive)
+			return;
+
+		health += amount;
+	}
+
+
 	[Command]
 	public void CmdFireTurret()
 	{
-//		if (PlayGame.GetComplete())
-//			return;
-		
 
-		GameObject missile = (GameObject)GameObject.Instantiate(Bullet, bulletPoint.transform.position, weaponHinge.transform.rotation);
-		NetworkServer.Spawn(missile);
+		if(gameObject.GetComponentInChildren<SingleBarrel>() != null)
+		{
+			gameObject.GetComponentInChildren<SingleBarrel>().Shoot();
+		}
+		else
+		{
+			gameObject.GetComponentInChildren<DoubleBarrel>().Shoot();
 
+		}
 	}
 
 	
@@ -102,6 +121,19 @@ public class PlayerCombat : NetworkBehaviour
 	public void CmdKillSelf()
 	{
 		TakeDamage(1000000);
+	}
+
+
+	//problems here
+	[Command]
+	public void CmdChangeWeapon(int i)
+	{
+		gameObject.GetComponentInChildren<SingleBarrel>().Destroy();
+
+		Weapon = CustomNetworkManager.instance.Weapons[i];
+		GameObject ebin = (GameObject)Instantiate(Weapon, new Vector3(weaponHinge.transform.position.x, weaponHinge.transform.position.y, weaponHinge.transform.position.z), weaponHinge.transform.rotation);
+		ebin.transform.parent = weaponHinge.transform;
+		NetworkServer.Spawn(ebin);
 	}
 
 

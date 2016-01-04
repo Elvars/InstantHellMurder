@@ -4,13 +4,15 @@ using UnityEngine.Networking;
 
 public class Bullet : NetworkBehaviour {
 	
-	public int damage;
+	private float deathTimer;
+	private float lifeTime = 10.0f;
+
+	[SyncVar] 
+	Vector3 pos;
 	
-	float deathTimer;
-	float lifeTime = 10.0f;
+	private Rigidbody2D rb;
 
-
-	Rigidbody2D rb;
+	public int damage;
 
 
 	
@@ -30,6 +32,8 @@ public class Bullet : NetworkBehaviour {
 	[ServerCallback]
 	void Update()
 	{
+
+		pos = gameObject.transform.position;
 
 		if (Time.time > deathTimer)
 		{
@@ -53,14 +57,14 @@ public class Bullet : NetworkBehaviour {
 		
 		bool destroyMe = false;		
 		
-		PlayerCombat tc = collision.gameObject.GetComponent<PlayerCombat>();
-		if (tc != null)
+		PlayerCombat pc = collision.gameObject.GetComponent<PlayerCombat>();
+		if (pc != null)
 		{
-			tc.GotHitByMissile(damage);
+			pc.GotHitByBullet(damage);
 			destroyMe = true;
 		}
 		
-		// destroy missile
+		// destroy bullet
 		if (destroyMe)
 		{
 			deathTimer = 0;

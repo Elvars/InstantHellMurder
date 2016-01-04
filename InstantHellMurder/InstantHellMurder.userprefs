@@ -1,21 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NetworkManagerHUD.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerCombat.cs" Line="89" Column="17" />
-      <File FileName="Assets\Scripts\CustomNetworkManager.cs" Line="16" Column="32" />
-      <File FileName="Assets\Scripts\Bullet.cs" Line="65" Column="4" />
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="94" Column="4" />
+      <File FileName="Assets\Scripts\NetworkManagerHUD.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\CustomNetworkManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="PlayerMovement.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

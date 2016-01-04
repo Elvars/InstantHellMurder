@@ -2,9 +2,9 @@ Mono path[0] = 'C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellM
 Mono path[1] = 'C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data/Mono'
 Mono config path = 'C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55249
-Multi-casting "[IP] 192.168.1.2 [Port] 55249 [Flags] 2 [Guid] 3738899430 [EditorId] 1793515103 [Version] 1048832 [Id] WindowsPlayer(Omistaja-PC) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.2:55249]
+PlayerConnection initialized network socket : 0.0.0.0 55110
+Multi-casting "[IP] 192.168.0.101 [Port] 55110 [Flags] 2 [Guid] 212682116 [EditorId] 2623522114 [Version] 1048832 [Id] WindowsPlayer(Omistaja-PC) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.0.101:55110]
 Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -22,81 +22,7 @@ Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\In
 Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.393 seconds
+- Completed reload, in  0.196 seconds
 desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Mono path[0] = 'C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data/Managed'
-Mono path[1] = 'C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data/Mono'
-Mono config path = 'C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data/Mono/etc'
-PlayerConnection initialized from C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/InstantHellMurder0.3_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55342
-Multi-casting "[IP] 192.168.1.2 [Port] 55342 [Flags] 2 [Guid] 1894892814 [EditorId] 1793515103 [Version] 1048832 [Id] WindowsPlayer(Omistaja-PC) [Debug] 0" to [225.0.0.222:54997]...
-PlayerConnection already initialized - listening to [192.168.1.2:55342]
-Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: NVIDIA NVS 3100M (ID=0xa6c)
-    Vendor:   NVIDIA
-    VRAM:     210 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.117 seconds
-desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1e80 -> priority: 1 
--1
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-CustomNetworkManager:OnServerConnect(NetworkConnection) (at C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\Assets\Scripts\CustomNetworkManager.cs:25)
-UnityEngine.Networking.NetworkManager:OnServerConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:639)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:188)
-UnityEngine.Networking.NetworkConnection:InvokeHandlerNoData(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:170)
-UnityEngine.Networking.NetworkServer:AddLocalClient(LocalClient) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:281)
-UnityEngine.Networking.LocalClient:InternalConnectLocalServer() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:53)
-UnityEngine.Networking.ClientScene:ConnectLocalServer() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:233)
-UnityEngine.Networking.NetworkManager:ConnectLocalClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:446)
-UnityEngine.Networking.NetworkManager:StartHost() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:434)
-UnityEngine.Networking.NetworkManagerHUD:OnGUI() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManagerHUD.cs:70)
- 
-(Filename: C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/Assets/Scripts/CustomNetworkManager.cs Line: 25)
-
--1
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-CustomNetworkManager:OnServerConnect(NetworkConnection) (at C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\Assets\Scripts\CustomNetworkManager.cs:25)
-UnityEngine.Networking.NetworkManager:StartHost() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:435)
-UnityEngine.Networking.NetworkManagerHUD:OnGUI() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManagerHUD.cs:70)
- 
-(Filename: C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/Assets/Scripts/CustomNetworkManager.cs Line: 25)
-
-Platform assembly: C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\InstantHellMurder0.3_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1654 -> priority: 1 
-1
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-CustomNetworkManager:OnServerConnect(NetworkConnection) (at C:\Users\Omistaja\Documents\Unity\InstantHellMurder\InstantHellMurder\Assets\Scripts\CustomNetworkManager.cs:25)
-UnityEngine.Networking.NetworkManager:OnServerConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:639)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:188)
-UnityEngine.Networking.NetworkConnection:InvokeHandlerNoData(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:170)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:696)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:585)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:915)
- 
-(Filename: C:/Users/Omistaja/Documents/Unity/InstantHellMurder/InstantHellMurder/Assets/Scripts/CustomNetworkManager.cs Line: 25)
-

@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 public class PlayGame : NetworkBehaviour {
 	
 	static public PlayGame singleton;
-	
 
 	public int controlComplete;
 	
@@ -17,14 +16,12 @@ public class PlayGame : NetworkBehaviour {
 		singleton = this;
 	}
 	
-
 	
 	public static bool GetComplete()
 	{
 		return singleton.complete;
 	}
 	
-
 
 	void Update()
 	{

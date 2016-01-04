@@ -5,34 +5,25 @@ using UnityEngine.UI;
 
 public class PlayerMovement : NetworkBehaviour 
 {
+	private float speed = 10;
+	private float thrusting;
+	private int moveForce;
+	private int jumpCount;
+	private bool m_focus = true;
 
-
-	float speed = 10;
+	private Rigidbody2D rb;
+	private Vector2 direction;
+	private Vector2 mousePos;
 	
-	float thrusting;
+	private Transform weaponHinge;
+	private Transform bulletPoint;
 
-	int moveForce;
-
-	bool m_focus = true;
 	
-
-	public PlayerCombat tc;
-	
-	
-	float turrentSendTimer = 0.0f;
-	float turrentSendDelay = 0.1f;
-
-	//uudet jutut
-
-
 	[SyncVar]
 	public float turretAngle;
 
-	private Vector2 direction;
-	private Vector2 mousePos;
-
-	private Transform weaponHinge;
-	private Transform bulletPoint;
+	public PlayerCombat pc;
+	public WeaponRotation initialRotation;
 
 	public enum WeaponRotation
 	{
@@ -41,12 +32,6 @@ public class PlayerMovement : NetworkBehaviour
 		Down = 90,
 		Left = 180
 	}
-	
-	public WeaponRotation initialRotation;
-	Rigidbody2D rb;
-
-	[SyncVar]
-	int jumpCount;
 
 
 	void Awake()
@@ -54,16 +39,14 @@ public class PlayerMovement : NetworkBehaviour
 		weaponHinge = gameObject.transform.GetChild(0);
 		rb = GetComponent<Rigidbody2D>();
 
-		tc = gameObject.GetComponent<PlayerCombat>();
+		pc = gameObject.GetComponent<PlayerCombat>();
 	}
 
 	
 	void Update() 
 	{
-
 		if (NetworkClient.active)
 			UpdateClient();
-
 	}
 
 	
@@ -74,7 +57,6 @@ public class PlayerMovement : NetworkBehaviour
 	
 	void UpdateClient()
 	{
-
 		if (!isLocalPlayer)
 		{
 			Vector3 trotationVector = new Vector3 (0, 0, turretAngle);
@@ -87,23 +69,26 @@ public class PlayerMovement : NetworkBehaviour
 		
 
 		HandlePlayerMovement();
-		
+
+
 		if (Input.GetMouseButtonDown(0))
 		{
-			tc.CmdFireTurret();
+			pc.CmdFireTurret();
 		}
 
 		
 		if (Input.GetKey(KeyCode.F1))
 		{
-			tc.CmdKillSelf();
+			pc.CmdKillSelf();
 		}
 
+		//Camera follows player
 		Vector3 cpos = transform.position;
 		cpos.z = Camera.main.transform.position.z;
 		Camera.main.transform.position = cpos;
 
 
+		//turret follows mouse
 		Vector3 mouse_pos = Input.mousePosition;
 		mouse_pos.z = 0.0f; 
 		Vector3 object_pos = Camera.main.WorldToScreenPoint(transform.position);
@@ -113,8 +98,6 @@ public class PlayerMovement : NetworkBehaviour
 		Vector3 rotationVector = new Vector3 (0, 0, angle);
 		weaponHinge.transform.rotation = Quaternion.Euler(rotationVector);
 		CmdRotateTurret(angle);
-
-
 	}
 
 
@@ -144,7 +127,6 @@ public class PlayerMovement : NetworkBehaviour
 	[Client]
 	public void CmdAddForce(int dir)
 	{
-
 		if(dir==0)
 		{
 			rb.AddForce(Vector2.left*15);
@@ -159,20 +141,11 @@ public class PlayerMovement : NetworkBehaviour
 	[Command]
 	public void CmdRotateTurret(float angle)
 	{
-//		if (!tc.alive)
-//			return;
-//		
-//		if (PlayGame.GetComplete())
-//			return;
-//
-
-	
 		Vector3 rotationVector = new Vector3 (0, 0, angle);
 		weaponHinge.transform.rotation = Quaternion.Euler(rotationVector);
 		turretAngle = angle;	
 	}
 	
-
 	
 	[Client]
 	void CmdJump()
@@ -189,8 +162,11 @@ public class PlayerMovement : NetworkBehaviour
 		{
 			jumpCount=0;
 		}
-		
-	
+
+		if(collider.gameObject.tag=="Player")
+		{
+			jumpCount=0;
+		}
 	}
 
 }
