@@ -5,19 +5,39 @@ using UnityEngine.Networking;
 
 public class GameManager : NetworkBehaviour {
 	
-	public static GameManager instance = null; 
+	public static GameManager singleton;
+	public int controlComplete;
+	
+	[SyncVar]
+	bool complete;
 
 
-	void Awake()
+	void Awake () 
 	{
+		singleton = this;
 		Application.targetFrameRate = 60;
+	}
+	
+	
+	public static bool GetComplete()
+	{
+		return singleton.complete;
+	}
+
+
+	void Update()
+	{
+		if (Input.GetKey(KeyCode.Escape))
+		{
+			if (isServer)
+			{
+				CustomNetworkManager.instance.StopHost();
+			}
+			else
+			{
+				CustomNetworkManager.instance.client.Disconnect();
+			}
+		}
 		
-		if (instance == null)
-			instance = this;
-		
-		else if (instance != this)
-			Destroy(gameObject);    
-		
-		DontDestroyOnLoad(gameObject);
 	}
 }
